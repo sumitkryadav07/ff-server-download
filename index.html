@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF Advance Server - Login & Download</title>
+    <style>
+        /* Aapka CSS aur thoda extra styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #081b29;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            width: 400px;
+            height: auto;
+            background: #112e42;
+            border: 2px solid #00abf0;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+        .form-box { margin-bottom: 20px; }
+        .active .Login { display: none; }
+        .active .Register { display: block; }
+        
+        .download-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid #00abf0;
+        }
+        .btn {
+            background: #00abf0;
+            color: #081b29;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: block;
+            margin: 10px 0;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #fff; box-shadow: 0 0 10px #00abf0; }
+        h2 { color: #00abf0; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="form-box Login">
+        <h2>Login to Download</h2>
+        <p>Please login to access Advance Server links.</p>
+        <button class="btn" onclick="toggle()">Go to Register</button>
+    </div>
+
+    <div class="form-box Register" style="display: none;">
+        <h2>Register Now</h2>
+        <p>Create account for Ghost Server access.</p>
+        <button class="btn" onclick="toggle()">Go to Login</button>
+    </div>
+
+    <div class="download-section">
+        <h3>Server Links</h3>
+        <a href="LINK_HERE" class="btn">Download Advance Server</a>
+        <a href="LINK_HERE" class="btn" style="background: #ff4500;">Ghost Server Proxy</a>
+    </div>
+</div>
+
+<script>
+    const container = document.getElementById('container');
+    const loginBox = document.querySelector('.Login');
+    const registerBox = document.querySelector('.Register');
+
+    function toggle() {
+        if (container.classList.contains('active')) {
+            container.classList.remove('active');
+            loginBox.style.display = "block";
+            registerBox.style.display = "none";
+        } else {
+            container.classList.add('active');
+            loginBox.style.display = "none";
+            registerBox.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+  
+</html>
