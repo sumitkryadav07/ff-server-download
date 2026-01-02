@@ -3,92 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FF Advance Server - Login & Download</title>
+    <title>FF Advance & Ghost Server Download</title>
     <style>
-        /* Aapka CSS aur thoda extra styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #081b29;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-        .container {
-            width: 400px;
-            height: auto;
-            background: #112e42;
-            border: 2px solid #00abf0;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-        }
-        .form-box { margin-bottom: 20px; }
-        .active .Login { display: none; }
-        .active .Register { display: block; }
+        body { font-family: 'Poppins', sans-serif; background: #081b29; color: #fff; text-align: center; margin: 0; padding: 20px; }
+        .ad-box { width: 100%; max-width: 728px; height: 90px; background: #112e42; margin: 15px auto; border: 1px dashed #00abf0; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+        .container { background: #112e42; border: 2px solid #00abf0; border-radius: 15px; padding: 30px; width: 320px; margin: 20px auto; box-shadow: 0 0 20px rgba(0, 171, 240, 0.4); }
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #081b29; border: 1px solid #00abf0; border-radius: 5px; color: white; box-sizing: border-box; }
+        .btn { background: #00abf0; color: #081b29; padding: 12px; width: 100%; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; text-decoration: none; display: block; box-sizing: border-box; }
+        .btn:hover { background: #fff; transform: scale(1.02); }
         
-        .download-section {
-            margin-top: 30px;
-            padding: 20px;
-            border-top: 1px solid #00abf0;
-        }
-        .btn {
-            background: #00abf0;
-            color: #081b29;
-            padding: 10px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: block;
-            margin: 10px 0;
-            transition: 0.3s;
-        }
-        .btn:hover { background: #fff; box-shadow: 0 0 10px #00abf0; }
-        h2 { color: #00abf0; }
+        /* Special Colors for your Files */
+        .proxy-btn { background: #ffcc00; color: #000; }
+        .ghost-btn { background: #ff4500; color: #fff; }
+        
+        #downloadSection { display: none; }
+        h2 { margin-bottom: 20px; color: #00abf0; }
+        p { font-size: 14px; opacity: 0.8; margin-top: 15px; }
     </style>
 </head>
 <body>
 
-<div class="container" id="container">
-    <div class="form-box Login">
-        <h2>Login to Download</h2>
-        <p>Please login to access Advance Server links.</p>
-        <button class="btn" onclick="toggle()">Go to Register</button>
+    <div class="ad-box" id="ad-top">
+        Ads Banner Space (Top)
     </div>
 
-    <div class="form-box Register" style="display: none;">
-        <h2>Register Now</h2>
-        <p>Create account for Ghost Server access.</p>
-        <button class="btn" onclick="toggle()">Go to Login</button>
+    <div class="container" id="loginBox">
+        <h2>Server Login</h2>
+        <p>Login to unlock download links</p>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button class="btn" onclick="unlockLinks()">Login & Unlock</button>
     </div>
 
-    <div class="download-section">
-        <h3>Server Links</h3>
-        <a href="https://release-assets.githubusercontent.com/github-production-release-asset/1122680845/6469405c-d284-4476-89ab-a0b366c33af9?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-01-02T05%3A56%3A56Z&rscd=attachment%3B+filename%3DFree-Fire-advance_68.52.0.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-01-02T04%3A56%3A02Z&ske=2026-01-02T05%3A56%3A56Z&sks=b&skv=2018-11-09&sig=KzfMZPml4RsCJJAyzjghy2tnEt83rsq0q2NP5uXwudk%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc2NzMzNDk2MiwibmJmIjoxNzY3MzMxMzYyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.leFpQRpkKR-2u60Rxja7FIR4Jbj1XDPjOx_oByaP59s&response-content-disposition=attachment%3B%20filename%3DFree-Fire-advance_68.52.0.apk&response-content-type=application%2Fvnd.android.package-archive" class="btn">Download Advance Server</a>
-        <a href="https://www.mediafire.com/file/i61c0y83jleokxt/Astute_Beta.apk.zip/file" class="btn" style="background: #ff4500;">Ghost Server Proxy</a>
+    <div id="downloadSection" class="container">
+        <h2 style="color: #66fcf1;">Links Unlocked!</h2>
+        
+        <p>Astute Beta (Proxy Server)</p>
+        <a href="https://www.mediafire.com/file/i61c0y83jleokxt/Astute_Beta.apk.zip/file" target="_blank" class="btn proxy-btn">Download Proxy Server</a>
+
+        <p>Ghost Bot (Fix Signed)</p>
+        <a href="https://www.mediafire.com/file/meascvtlg4oz2kz/GHOST_BOT_x_16_%2528fix%2529_signed.apk/file" target="_blank" class="btn ghost-btn">Download Ghost Bot</a>
+
+        <p>Main Advance Server</p>
+        <a href="#" class="btn">Advance Server APK</a>
     </div>
-</div>
 
-<script>
-    const container = document.getElementById('container');
-    const loginBox = document.querySelector('.Login');
-    const registerBox = document.querySelector('.Register');
+    <div class="ad-box" id="ad-bottom">
+        Ads Banner Space (Bottom)
+    </div>
 
-    function toggle() {
-        if (container.classList.contains('active')) {
-            container.classList.remove('active');
-            loginBox.style.display = "block";
-            registerBox.style.display = "none";
-        } else {
-            container.classList.add('active');
-            loginBox.style.display = "none";
-            registerBox.style.display = "block";
+    <script>
+        function unlockLinks() {
+            alert("Login Successful! Your links are now ready.");
+            document.getElementById('loginBox').style.display = "none";
+            document.getElementById('downloadSection').style.display = "block";
         }
-    }
-</script>
-
+    </script>
 </body>
-  
 </html>
